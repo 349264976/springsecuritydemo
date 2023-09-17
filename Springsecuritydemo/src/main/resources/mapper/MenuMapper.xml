@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itkaien.springsecuritydemo.mapper.MenuMapper">
+
+    <select id="selectPermsByUserid" resultType="java.lang.String">
+        SELECT DISTINCT smenu.perms FROM sys_user_role sur LEFT JOIN  sys_role sr ON
+            sur.role_id = sr.id
+            LEFT JOIN sys_role_menu srm ON  srm.role_id =sur.role_id
+            LEFT JOIN sys_menu smenu ON smenu.id=srm.menu_id
+            WHERE #{userid} =1  AND sr.`status`=0 AND smenu.`status`=0
+    </select>
+</mapper>

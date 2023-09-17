@@ -1,0 +1,96 @@
+spring:
+#  application:
+#    name: springfox-swagger
+  datasource:
+    url: jdbc:mysql://localhost:3306/dbtest1?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 520517li
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: 520517li
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+server:
+  port: 8888
+  spring:
+    application:
+      name: springfox-swagger
+  server:
+    port: 8080
+  # ===== 自定义swagger配置 ===== #
+  swagger:
+    enable: true
+    application-name: ${spring.application.name}
+    application-version: 1.0
+    application-description: springfox swagger 3.0整合Demo
+    try-host: http://localhost:${server.port}
+#knife4j
+knife4j:
+  #是否开启Knife4j增强模式,默认false,要使用Knife4j提供的增强,则必须开启
+  #在以前的版本中,开发者需要在配置文件中手动使用@EnableKnife4j来使用增强，自2.0.6版本后,只需要在配置文件中配置enable=true即可不在使用注解
+  enable: true
+    #自定义文档集合，该属性是数组
+    #documents:
+    #-
+    #所属分组
+    #group: 2.X版本
+    #name: 接口签名
+  #locations: classpath:sign/*
+  #前端UI的个性化配置
+  setting:
+    #Ui默认显示语言,目前主要有两种:中文(zh-CN)默认、英文(en-US),UI界面上也可以手动切换语言
+    #language: zh-CN
+    #是否开启SwaggerModel菜单,默认true
+    #enableSwaggerModels: true
+    #自定义左侧SwaggerModel菜单名称
+    swaggerModelName: 实体类列表
+    #是否显示UI界面"文档管理"菜单,默认true
+    #enableDocumentManage: true
+    #是否开启界面中对某接口的版本控制,如果开启，后端变化后Ui界面会存在小蓝点,默认false
+    #enableVersion: false
+    #是否在每个Debug调试栏后显示刷新变量按钮,默认false
+    #enableReloadCacheParameter: false
+    #调试Tab是否显示AfterScript功能,默认true
+    #enableAfterScript: true
+    #具体接口的过滤类型,默认POST
+    #enableFilterMultipartApiMethodType: POST
+    #是否开启请求参数缓存,默认true
+    #enableRequestCache: true
+    #是否启用Host,默认false
+    #enableHost: false
+    #enableHostText: 192.168.0.193:8000
+    #是否开启自定义主页内容,默认false
+    #enableHomeCustom: false
+    #主页内容Markdown文件路径
+    #homeCustomLocation: classpath:markdown/home.md
+    #是否禁用Ui界面中的搜索框,默认false
+    #enableSearch: false
+    #是否显示knife4j默认的Footer,默认true(Apache License 2.0 | Copyright  2019-[浙江八一菜刀股份有限公司](https://gitee.com/xiaoym/knife4j))
+    enableFooter: false
+    #是否显示UI界面自定义Footer内容,默认false
+    enableFooterCustom: true
+    #自定义的Footer内容
+    footerCustomContent: kimi的swagger接口文档
+    #是否开启动态参数调试功能,默认false
+    #enableDynamicParameter: false
+    #是否启用调试功能,默认true
+    #enableDebug: true
+    #显示OpenAPI规范,默认true
+    #enableOpenApi: false
+    #显示服务分组,默认true
+    #enableGroup: true
+  #是否开启一个默认的跨域配置,该功能配合自定义Host使用,默认false
+  #cors: false
+  #是否开启生产环境保护策略,默认false
+  #production: false
+  #对Knife4j提供的资源提供BasicHttp校验,保护文档,就是访问UI页面时需要输入用户名/密码
+  basic:
+    #是否开启,默认false
+    enable: true
+    #basic用户名
+    username: kimi
+    #basic密码
+    password: 99999
